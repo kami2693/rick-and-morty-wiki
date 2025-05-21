@@ -1,0 +1,540 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.App {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+h1 {
+  color: #97ce4c;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: 1rem !important;
+  margin-bottom: 1.2rem !important;
+}
+
+/* Контейнер для карток */
+.cards-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-height: 820px;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  height: 400px;
+  min-height: 400px;
+  max-height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 170px;
+  object-fit: cover;
+  width: 100%;
+  border-bottom: 3px solid #97ce4c;
+}
+
+.card-title {
+  min-height: 48px;
+  max-height: 48px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 0.5rem 0;
+  color: #97ce4c;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem 1.2rem 1.2rem 1.2rem;
+  overflow: hidden;
+}
+
+.card-text {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  font-weight: 500;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Стилі для пагінації */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.page-item {
+  list-style: none;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #97ce4c;
+  color: #97ce4c;
+  border-radius: 50%;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.page-link:hover {
+  background: #97ce4c;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.page-item.active .page-link {
+  background: #97ce4c;
+  color: #fff;
+  border-color: #97ce4c;
+}
+
+.page-item.disabled .page-link {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(151, 206, 76, 0.3);
+  color: rgba(151, 206, 76, 0.3);
+  cursor: not-allowed;
+}
+
+/* Анімація для карток */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.card:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.card:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+/* Стилі для пошуку та фільтрів */
+.search-filters-container {
+  max-width: 1200px;
+  margin: 0 auto 1.2rem;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.search-container {
+  flex: 0 0 320px;
+  min-width: 220px;
+  position: relative;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 3rem 0 1.5rem;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #97ce4c;
+  border-radius: 30px;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(151, 206, 76, 0.3);
+}
+
+.search-icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #97ce4c;
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus + .search-icon {
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Стилі для фільтрів */
+.filters-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-group {
+  position: relative;
+  flex: 0 0 170px;
+  min-width: 140px;
+  max-width: 170px;
+}
+
+.filter-select {
+  width: 100%;
+  height: 48px;
+  padding: 0 2.5rem 0 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #97ce4c;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+}
+
+.filter-select:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(151, 206, 76, 0.3);
+}
+
+.filter-select option {
+  background: #2d2d2d;
+  color: #fff;
+  padding: 1rem;
+}
+
+.filter-group::after {
+  content: '\f078';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #97ce4c;
+  pointer-events: none;
+  font-size: 0.8rem;
+}
+
+.filter-button {
+  flex: 0 0 auto;
+  height: 48px;
+  padding: 0 1.5rem;
+  background: rgba(151, 206, 76, 0.2);
+  border: 2px solid #97ce4c;
+  border-radius: 30px;
+  color: #97ce4c;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  opacity: 0.5;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.filter-button.active {
+  background: #97ce4c;
+  color: #fff;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.filter-button.active:hover {
+  background: #7da83d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(151, 206, 76, 0.3);
+}
+
+.filter-button.active:active {
+  transform: translateY(0);
+}
+
+/* Адаптивні стилі */
+@media (max-width: 1200px) {
+  .search-filters-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .search-container {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .filters-container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .filter-group {
+    flex: 1;
+    min-width: 120px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-container {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .filter-group {
+    width: 100%;
+    max-width: none;
+  }
+
+  .filter-button {
+    width: 100%;
+  }
+}
+
+/* Адаптивні стилі */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .card {
+    flex: 0 0 250px;
+  }
+  
+  .card-img-top {
+    height: 200px;
+  }
+  
+  .form-control, .btn-primary {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .page-link {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Додаємо анімацію для кнопок */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Додаємо ефект хвилі при кліку на кнопки */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.btn:active::after {
+  animation: ripple 0.6s linear;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(30, 30, 30, 0.7);
+  border: 2px solid #97ce4c;
+  color: #97ce4c;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  opacity: 0.85;
+}
+
+.slider-btn:hover {
+  background: #97ce4c;
+  color: #222;
+  border-color: #97ce4c;
+  opacity: 1;
+}
+
+.slider-btn-left {
+  left: -70px;
+}
+
+.slider-btn-right {
+  right: -70px;
+}
+
+@media (max-width: 900px) {
+  .slider-btn-left {
+    left: 0;
+  }
+  .slider-btn-right {
+    right: 0;
+  }
+}
