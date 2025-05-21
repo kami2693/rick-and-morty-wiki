@@ -1,54 +1,69 @@
-# React + TypeScript + Vite
+# Rick & Morty Wiki 🌌
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Сучасний веб-додаток для перегляду інформації про персонажів всесвіту Rick & Morty. Розроблено з використанням React, TypeScript та Vite.
 
-Currently, two official plugins are available:
+## ✨ Особливості
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 Пошук персонажів за ім'ям
+- 🎯 Фільтрація за статусом, видом та статтю
+- 📱 Адаптивний дизайн
+- 🎨 Сучасний UI з анімаціями
+- 🌙 Підтримка темної теми
+- 📄 Пагінація
+- 🎭 Детальна інформація про кожного персонажа
+- ⚡ Швидке завантаження з використанням скелетонів
+- 🔄 Інфініт-слайдер для карток персонажів
 
-## Expanding the ESLint configuration
+## 🛠 Технічний стек
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 18
+- TypeScript
+- Vite
+- React Router DOM
+- Tailwind CSS
+- React Loading Skeleton
+- Rick & Morty API
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Встановлення та запуск
+
+1. Клонуйте репозиторій:
+```bash
+git clone https://github.com/YOUR_USERNAME/rick-and-morty-wiki.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Встановіть залежності:
+```bash
+cd rick-and-morty-wiki
+npm install
 ```
+
+3. Запустіть проект:
+```bash
+npm run dev
+```
+
+## 📱 Використання
+
+- Використовуйте пошуковий рядок для пошуку персонажів за ім'ям
+- Фільтруйте персонажів за статусом (живий/мертвий/невідомо)
+- Фільтруйте за видом (людина/інопланетянин/тощо)
+- Фільтруйте за статтю
+- Клікніть на картку персонажа для перегляду детальної інформації
+- Використовуйте кнопки навігації для перегляду інших сторінок
+
+## 🎨 UI Компоненти
+
+- Картки персонажів з анімацією при наведенні
+- Адаптивний пошуковий рядок
+- Стильні фільтри з випадаючими списками
+- Пагінація з кнопками навігації
+- Скелетони завантаження
+- Інфініт-слайдер з кнопками прокрутки
+
+## 🤝 Внесок у проект
+
+Відкривайте issues та pull requests для покращення проекту. Будь-який внесок привітається!
+
+## 📄 Ліцензія
+
+MIT License - дивіться файл [LICENSE](LICENSE) для деталей.
