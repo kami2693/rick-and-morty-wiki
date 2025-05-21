@@ -152,7 +152,7 @@ function MainPage() {
       </div>
       <div className="container">
         <div className="row">
-          <Card page="/" results={isLoading ? undefined : results} />
+          <Card page={import.meta.env.BASE_URL} results={isLoading ? undefined : results} />
         </div>
       </div>
       <Pagination

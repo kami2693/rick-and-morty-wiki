@@ -67,3 +67,4 @@ npm run dev
 ## 📄 Ліцензія
 
 MIT License - дивіться файл [LICENSE](LICENSE) для деталей.
+DEMO LINK [https://kami2693.github.io/rick-and-morty-wiki/]
